@@ -12,6 +12,7 @@ let song;
 let sensitivity;
 let start;
 let font;
+let currentpeople;
 
 function preload(){
 object = loadJSON("object.json");
@@ -40,11 +41,14 @@ function setup(){
   aim_rad = (-cam_z)/10;
 
   start = false;
+  currentpeople=0;
 
   for(let i = 0; i<Object.keys(object).length; i++){
-    people[i] = new People(object[i]);
-    people[i].detect = false;
+          people[i] = new People(object[i]);
+          people[i].detect = false;
   }
+
+
   createCanvas(windowWidth, windowHeight, WEBGL);
 }
 
@@ -66,6 +70,7 @@ function draw(){
     camera(cam_x, cam_y, cam_z,cam_cx, cam_cy, cam_cz,0,-1,0);
     pan += radians(movedX)/sensitivity;
     tilt -= radians(movedY)/sensitivity;
+
 
     //load people data from JSON file
     for(let i = 0; i<Object.keys(object).length; i++){
@@ -98,6 +103,7 @@ function mouseClicked(){
     }
   }
   requestPointerLock();
+
 }
 
 

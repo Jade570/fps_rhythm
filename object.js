@@ -19,6 +19,7 @@ class People {
     this.downangle = this.centerangley-this.tipangle;
     this.detect;
     this.texture = jsonobj.texture;
+    this.isrendering;
 
     //we need to compare cam(pan&tilt) w/ jsonobj.pan&tilt.
   }
@@ -26,6 +27,7 @@ class People {
   render() {
     //if song time ~ == this.time
     if(song.currentTime() >= this.appear_time && this.rescue == false){
+      this.isrendering = true;
       push();
       tint(0,255,0);
       texture(peopletexture[this.texture]);
@@ -34,16 +36,19 @@ class People {
       box(50, 50, 50);
       pop();
     }
+    else{
+      this.isrendering = false;
+    }
   }
 
   detected() {
-    if(this.detect == false){
+    if(this.detect == false && this.isrendering == true){
       if (pan+(1.75+10*cos(this.jsonrad))*aim_tipangle<=this.rightangle && pan-(1.75+10*cos(this.jsonrad))*aim_tipangle>=this.leftangle &&
          tilt+(1.75+10*cos(this.jsonrad))*aim_tipangle <= this.upangle && tilt-(1.75+10*cos(this.jsonrad))*aim_tipangle >= this.downangle) {
         this.detect = true;
         soundeffect[int(random(4))+1].play();
         setTimeout(function(){anime[int(random(4))+1].play();}, 50);
-    
+        console.log("detect");
       } else this.detect = false;
     }
 
