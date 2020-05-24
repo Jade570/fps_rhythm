@@ -353,7 +353,6 @@
 		"rad": 0.5,
 		"texture" : 4
 },
-//
  {
 		"appear_time": 47,
 		"pan": -5,
@@ -437,7 +436,8 @@
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 4
-},{
+},
+ {
 		"appear_time": 56,
 		"pan": -5,
 		"tilt": 0,
@@ -492,7 +492,8 @@
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 4
-},{
+},
+ {
 		"appear_time": 62.18,
 		"pan": -5,
 		"tilt": 0,
@@ -505,7 +506,8 @@
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 4
-},{
+},
+ {
 		"appear_time": 63.14,
 		"pan": -5,
 		"tilt": 0,
@@ -518,7 +520,8 @@
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 4
-},{
+},
+ {
 		"appear_time": 64.1,
 		"pan": -5,
 		"tilt": 0,
