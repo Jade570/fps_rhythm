@@ -7,14 +7,189 @@
 },
 {
 		"appear_time": 4.4,
-		"pan": 10,
+		"pan": 0,
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 6
 },
 {
 		"appear_time": 5.27,
-		"pan": -10,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 6.6,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 8.8,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 9.66,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 11.17,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 13.37,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 14.23,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 15.57,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 17.77,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 18.63,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 20.13,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 20.37,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 21,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 21.7,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 22.33,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 22.6,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 23.2,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 24.07,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 24.53,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 25,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 25.4,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 26.27,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 26.73,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 27.27,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 27.6,
+		"pan": 0,
+		"tilt": 0,
+		"rad": 0.5,
+		"texture" : 4
+},
+ {
+		"appear_time": 28.47,
+		"pan": 0,
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 4
