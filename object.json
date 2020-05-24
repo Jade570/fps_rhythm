@@ -1,19 +1,19 @@
 [{
-		"appear_time": 0,
+		"appear_time": 2.2,
 		"pan": 0,
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 1
 },
 {
-		"appear_time": 5,
+		"appear_time": 4.4,
 		"pan": 10,
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 6
 },
 {
-		"appear_time": 10,
+		"appear_time": 5.27,
 		"pan": -10,
 		"tilt": 0,
 		"rad": 0.5,
