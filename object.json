@@ -7,14 +7,14 @@
 },
 {
 		"appear_time": 4.4,
-		"pan": 0,
+		"pan": 5,
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 6
 },
 {
 		"appear_time": 5.27,
-		"pan": 0,
+		"pan": -5,
 		"tilt": 0,
 		"rad": 0.5,
 		"texture" : 4
