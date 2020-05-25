@@ -176,6 +176,7 @@ function draw() {
 
   if(song.currentTime() >= 67){
     song.pause();
+    exitPointerLock();
   }
   if(song.isPaused()){
     if(score >= perfect * 0.8){
