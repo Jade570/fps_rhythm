@@ -31,6 +31,9 @@ font = loadFont('assets/NotoSansKR-Black.otf');
 }
 
 function setup(){
+  frameRate(50);
+
+
   //camera set-up
   cam_x = 0;
   cam_y = 0;
@@ -63,6 +66,7 @@ function setup(){
 function draw(){
   background(0);
 
+
   if(start == false){
     push();
     fill(255);
@@ -85,6 +89,7 @@ function draw(){
     //load people data from JSON file
     for(let i = 0; i<Object.keys(object).length; i++){
       people[i].rescued();
+      people[i].shadow();
       people[i].render();
     }
 
@@ -129,7 +134,7 @@ function mouseReleased(){
       currentpeople += 1;
     }
   }
-  setTimeout(function(){aimsituation = 0; detection = 0},50);
+  setTimeout(function(){aimsituation = 0; detection = 0},5);
 }
 
 
