@@ -7,12 +7,15 @@ let cam_x, cam_y, cam_z;
 let cam_dx, cam_dy, cam_dz;
 let cam_cx, cam_cy, cam_cz;
 let aim_rad, aim_x, aim_y, aim_z, aim_tipangle;
+let aimcolor = [];
+let aimsituation;
 let pan, tilt;
 let song;
 let sensitivity;
 let start;
 let font;
 let currentpeople;
+let detection;
 
 function preload(){
 object = loadJSON("object.json");
@@ -48,6 +51,11 @@ function setup(){
           people[i].detect = false;
   }
 
+  aimcolor[0]=color(255,255,255); //normal
+  aimcolor[1]=color(0,200,0); // targeted
+  aimcolor[2]=color(200,0,0); // no or wrong target
+  aimsituation = 0;
+  detection = 0;
 
   createCanvas(windowWidth, windowHeight, WEBGL);
 }
@@ -56,11 +64,13 @@ function draw(){
   background(0);
 
   if(start == false){
+    push();
     fill(255);
     textFont(font);
     textAlign(CENTER, CENTER);
     textSize(60);
     text("PLAY", 0,0);
+    pop();
   }
 
 
@@ -78,18 +88,17 @@ function draw(){
       people[i].render();
     }
 
-
     //set aiming point
     push();
     translate(aim_x, aim_y, aim_z);
-    fill(255);
+    fill(aimcolor[aimsituation]);
     noStroke();
     sphere(0.5,4,4);
     pop();
   }
 }
 
-function mouseClicked(){
+function mousePressed(){
   if (start == false){
     clear();
     start = true;
@@ -98,12 +107,29 @@ function mouseClicked(){
 
   else{
     //hit-box detecton
-    for(let i = 0; i<Object.keys(object).length; i++){
+    for(let i = currentpeople; i<Object.keys(object).length; i++){
       people[i].detected();
+      if(people[i].detect == true){
+      aimsituation = 1;
+      detection = 1;
+      }
     }
+    if(detection == 0){
+      aimsituation = 2;
+    }
+
   }
   requestPointerLock();
+}
 
+
+function mouseReleased(){
+  for(let i = currentpeople; i<Object.keys(object).length; i++){
+    if(people[i].detect == true){
+      currentpeople += 1;
+    }
+  }
+  setTimeout(function(){aimsituation = 0; detection = 0},50);
 }
 
 
