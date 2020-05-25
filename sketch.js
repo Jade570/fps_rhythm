@@ -23,7 +23,10 @@ let great = 300;
 let good = 100;
 let bad = 50;
 let bg;
-
+let perfect;
+let A;
+let B;
+let C;
 
 
 function preload() {
@@ -38,6 +41,9 @@ function preload() {
   for (let i = 1; i <= 6; i++) {
     peopletexture[i] = loadImage("assets/slime/" + i + ".png");
   }
+  A = loadModel('assets/abc/modelA.obj');
+  B = loadModel('assets/abc/modelB.obj');
+  C = loadModel('assets/abc/modelC.obj');
 }
 
 function setup() {
@@ -85,10 +91,14 @@ function setup() {
   scorediv.style('font-size', 15+'px');
   scorediv.style('text-align', 'left');
 
+  perfect = (Object.keys(object).length-1)*300;
 }
 
 function draw() {
   background(0);
+
+
+
 
   if (start == false) { // play button
     push();
@@ -101,16 +111,9 @@ function draw() {
   }
 
   if (start == true) { //game start
-    /*
-    push();
-    fill(255);
-    textFont(font);
-    textAlign(CENTER, CENTER);
-    textSize(15);
-    rotateX(PI);
-    text("score:"+score, aim_x+(-windowWidth/2)-30, aim_y+(-windowHeight/2)+30);
-    pop();
-*/
+
+    ambientLight(255,255,255);
+    directionalLight(255,255,255,0,1,0);
 
 
     //background box
@@ -168,6 +171,41 @@ function draw() {
     sphere(0.5, 4, 4);
     pop();
   }
+
+  if(song.currentTime() >= 67){
+    song.pause();
+  }
+  if(song.isPaused()){
+    if(score >= perfect * 0.8){
+      push();
+      translate(0,0, aim_z/2);
+      scale(100);
+      noStroke();
+      fill(255,0,0);
+      model(A);
+      pop();
+    }
+    else if(score >= perfect * 0.5){
+      push();
+      translate(0,0, aim_z/2);
+      scale(100);
+      noStroke();
+      fill(0,255,0);
+      model(B);
+      pop();
+    }
+    else{
+      push();
+      translate(0,0, aim_z/2);
+      scale(100);
+      noStroke();
+      fill(0,0,255);
+      model(C);
+      pop();
+    }
+  }
+
+
 }
 
 function mousePressed() {
@@ -199,7 +237,8 @@ function mousePressed() {
 function mouseReleased() {
   aimsituation = 0;
   detection = 0;
-  console.log(score);
+
+  //update score
   scorediv = createDiv("score:"+score);
   scorediv.position(10,10);
   scorediv.style('color', '#ffffff');
