@@ -2,6 +2,7 @@ let object;
 let people = [];
 let peopletexture = [];
 let soundeffect = [];
+let asteroid = [];
 let anime = [];
 let cam_x, cam_y, cam_z;
 let cam_dx, cam_dy, cam_dz;
@@ -32,8 +33,6 @@ font = loadFont('assets/NotoSansKR-Black.otf');
 
 function setup(){
   frameRate(50);
-
-
   //camera set-up
   cam_x = 0;
   cam_y = 0;
@@ -52,6 +51,10 @@ function setup(){
   for(let i = 0; i<Object.keys(object).length; i++){
           people[i] = new People(object[i]);
           people[i].detect = false;
+  }
+  for(let i = 0; i<5; i++){
+    asteroid[i] = new Asteroid();
+    asteroid[i].isgone = false;
   }
 
   aimcolor[0]=color(255,255,255); //normal
@@ -91,6 +94,10 @@ function draw(){
       people[i].rescued();
       people[i].shadow();
       people[i].render();
+    }
+    for(let i = 0; i<5; i++){
+      asteroid[i].render();
+      asteroid[i].newconstruct();
     }
 
     //set aiming point

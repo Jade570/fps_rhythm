@@ -40,7 +40,6 @@ class People {
 
   }
 
-
   render() {
     //if song time ~ == this.time
     if (this.rescue == false) {
@@ -84,4 +83,82 @@ class People {
     }
   }
 
+}
+
+class Asteroid{
+  constructor(){
+    this.x = random(10,15);
+    this.y = random(10,15);
+    this.z = random(10,15);
+
+    this.hue = random(360);
+    this.saturation = random(5,13);
+    this.brightness = random(90,100);
+    this.alpha = random(0.1, 0.3);
+    this.leftright = random(1);
+    this.updown = random(1);
+    this.velocity = random(5, 100);
+    this.isgone;
+
+    if(this.leftright < 0.5){ //left
+      this.posx = random(-windowWidth, -50);
+    }
+    else{ //right
+      this.posx = random(50, windowWidth);
+    }
+    if(this.updown < 0.5){ //down
+      this.posy = random(-windowHeight, -50);
+    }
+    else{ //up
+      this.posy = random(50, windowHeight);
+    }
+    this.posz = 1000;
+  }
+
+  render(){
+    if(this.posz >= (-(windowHeight/2/ tan(PI*30.0 / 180.0)))/2){
+      push();
+      colorMode(HSB,360,100,100,1);
+      fill(this.hue, this.saturation, this.brightness, this.alpha);
+      translate(this.posx, this.posy, this.posz);
+      noStroke();
+      ellipsoid(this.x, this.y, this.z, 12,8);
+      this.posz -= this.velocity;
+      pop();
+      this.isgone = false;
+    }
+    else{
+      this.isgone = true;
+    }
+  }
+
+  newconstruct(){
+    if(this.isgone == true){
+      this.x = random(10,15);
+      this.y = random(10,15);
+      this.z = random(10,15);
+      this.hue = random(360);
+      this.saturation = random(5,13);
+      this.brightness = random(90,100);
+      this.alpha = random(0.1, 0.3);
+      this.leftright = random(1);
+      this.updown = random(1);
+      this.velocity = random(5, 100);
+
+      if(this.leftright < 0.5){ //left
+        this.posx = random(-windowWidth, -50);
+      }
+      else{ //right
+        this.posx = random(50, windowWidth);
+      }
+      if(this.updown < 0.5){ //down
+        this.posy = random(-windowHeight, -50);
+      }
+      else{ //up
+        this.posy = random(50, windowHeight);
+      }
+      this.posz = 1000;
+            this.isgone = false;
+    }
+  }
 }
