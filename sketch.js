@@ -18,11 +18,13 @@ let start;
 let font;
 let currentpeople;
 let detection;
-let score;
+let score = 0;
 let great = 300;
 let good = 100;
 let bad = 50;
 let bg;
+
+
 
 function preload() {
   object = loadJSON("object.json");
@@ -51,6 +53,7 @@ function setup() {
   tilt = 0;
   sensitivity = 8;
   aim_rad = (-cam_z) / 10;
+  score = 0;
 
   start = false;
   currentpeople = 0;
@@ -74,13 +77,20 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   bg.height = windowHeight;
   bg.width = windowWidth;
+
+
+  scorediv = createDiv("score:"+score);
+  scorediv.position(10,10);
+  scorediv.style('color', '#ffffff');
+  scorediv.style('font-size', 15+'px');
+  scorediv.style('text-align', 'left');
+
 }
 
 function draw() {
   background(0);
 
-
-  if (start == false) {
+  if (start == false) { // play button
     push();
     fill(255);
     textFont(font);
@@ -90,8 +100,20 @@ function draw() {
     pop();
   }
 
+  if (start == true) { //game start
+    /*
+    push();
+    fill(255);
+    textFont(font);
+    textAlign(CENTER, CENTER);
+    textSize(15);
+    rotateX(PI);
+    text("score:"+score, aim_x+(-windowWidth/2)-30, aim_y+(-windowHeight/2)+30);
+    pop();
+*/
 
-  if (start == true) {
+
+    //background box
     push();
     translate(0, 0, 5 * (-cam_z));
     texture(bg);
@@ -170,12 +192,19 @@ function mousePressed() {
     }
   }
   requestPointerLock();
+  removeElements();
 }
 
 
 function mouseReleased() {
   aimsituation = 0;
   detection = 0;
+  console.log(score);
+  scorediv = createDiv("score:"+score);
+  scorediv.position(10,10);
+  scorediv.style('color', '#ffffff');
+  scorediv.style('font-size', 15+'px');
+  scorediv.style('text-align', 'left');
 }
 
 

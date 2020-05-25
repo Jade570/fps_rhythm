@@ -5,3 +5,12 @@ html, body {
 canvas {
   display: block;
 }
+
+div{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  text-align: left;
+  color: white;
+  font-size: 15px;
+}

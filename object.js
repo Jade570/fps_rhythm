@@ -65,10 +65,24 @@ class People {
       if (pan + (1.75 + 10 * cos(this.jsonrad)) * aim_tipangle <= this.rightangle && pan - (1.75 + 10 * cos(this.jsonrad)) * aim_tipangle >= this.leftangle &&
         tilt + (1.75 + 10 * cos(this.jsonrad)) * aim_tipangle <= this.upangle && tilt - (1.75 + 10 * cos(this.jsonrad)) * aim_tipangle >= this.downangle) {
         this.detect = true;
+
+        //sound effects
         soundeffect[int(random(4)) + 1].play();
         setTimeout(function() {
           anime[int(random(4)) + 1].play();
         }, 50);
+
+        //bad/good/great
+        if(song.currentTime() >= this.appear_time-0.1 && song.currentTime() < this.appear_time+0.1){ //great
+          score+=great;
+        }
+        else if(song.currentTime() >= this.appear_time-0.3 && song.currentTime() < this.appear_time+0.3){ //good
+          score+=good;
+        }
+        else if(song.currentTime() >= this.appear_time-0.6 && song.currentTime() < this.appear_time+0.6){ //bad
+          score+=bad;
+        }
+
       } else this.detect = false;
     }
 
