@@ -134,7 +134,8 @@ function mouseReleased(){
       currentpeople += 1;
     }
   }
-  setTimeout(function(){aimsituation = 0; detection = 0},5);
+aimsituation = 0;
+detection = 0;
 }
 
 
