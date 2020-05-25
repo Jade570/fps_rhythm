@@ -17,10 +17,16 @@ let start;
 let font;
 let currentpeople;
 let detection;
+let score;
+let great = 300;
+let good = 100;
+let bad = 50;
+let bg;
 
 function preload(){
 object = loadJSON("object.json");
 song = loadSound('assets/song.mp3');
+bg = loadImage('assets/space/space6.jpg');
 for(let i = 1; i<=4; i++){
   soundeffect[i] = loadSound("assets/soundeffect/effect"+i+".wav") ;
   anime[i] = loadSound("assets/soundeffect/anime"+i+".mp3") ;
@@ -64,10 +70,12 @@ function setup(){
   detection = 0;
 
   createCanvas(windowWidth, windowHeight, WEBGL);
+  bg.height = windowHeight;
+  bg.width = windowWidth;
 }
 
 function draw(){
-  background(0);
+    background(0);
 
 
   if(start == false){
@@ -82,6 +90,34 @@ function draw(){
 
 
   if (start == true){
+    push();
+    translate(0,0,5*(-cam_z));
+    texture(bg);
+    box(bg.width*windowWidth/100, bg.height*windowHeight/100, 1);
+    pop();
+
+    push();
+    rotateY(HALF_PI);
+    translate(0,0,5*(-cam_z));
+    texture(bg);
+    box(bg.width*windowWidth/100, bg.height*windowHeight/100, 1);
+    pop();
+
+    push();
+    rotateY(HALF_PI*2);
+    translate(0,0,5*(-cam_z));
+    texture(bg);
+    box(bg.width*windowWidth/100, bg.height*windowHeight/100, 1);
+    pop();
+
+    push();
+    rotateY(HALF_PI*3);
+    translate(0,0,5*(-cam_z));
+    texture(bg);
+    box(bg.width*windowWidth/100, bg.height*windowHeight/100, 1);
+    pop();
+
+
     //camera set-up
     updateCamCenter();
     camera(cam_x, cam_y, cam_z,cam_cx, cam_cy, cam_cz,0,-1,0);
