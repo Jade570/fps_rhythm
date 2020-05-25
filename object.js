@@ -116,7 +116,7 @@ class Asteroid{
   }
 
   render(){
-    if(this.posz >= (-(windowHeight/2/ tan(PI*30.0 / 180.0)))/2){
+    if(this.posz >= (-(windowHeight/2/ tan(PI*30.0 / 180.0)))*3){
       push();
       colorMode(HSB,360,100,100,1);
       fill(this.hue, this.saturation, this.brightness, this.alpha);
