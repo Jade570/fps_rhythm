@@ -27,6 +27,7 @@ let perfect;
 let A;
 let B;
 let C;
+let character;
 
 
 function preload() {
@@ -44,6 +45,7 @@ function preload() {
   A = loadModel('assets/abc/modelA.obj');
   B = loadModel('assets/abc/modelB.obj');
   C = loadModel('assets/abc/modelC.obj');
+  character = loadModel('assets/character.obj'); 
 }
 
 function setup() {

@@ -7,6 +7,25 @@ class People {
     this.jsonrad = HALF_PI * jsonobj.rad;
     this.origin = createVector(cam_x + (this.rad) * sin(radians(jsonobj.pan)), cam_y + (this.rad) * sin(radians(jsonobj.tilt)), cam_z + (this.rad) * cos(radians(jsonobj.pan)) * cos(radians(jsonobj.tilt)));
     this.pos = createVector(cam_x + (this.rad) * sin(radians(jsonobj.pan)), cam_y + (this.rad) * sin(radians(jsonobj.tilt)), cam_z + (this.rad) * cos(radians(jsonobj.pan)) * cos(radians(jsonobj.tilt)) + 500);
+    this.characterpos = createVector(cam_x + (this.rad) * sin(radians(jsonobj.pan)), cam_y + (this.rad) * sin(radians(jsonobj.tilt))-25, cam_z + (this.rad) * cos(radians(jsonobj.pan)) * cos(radians(jsonobj.tilt)));
+    this.pos1 = createVector(cam_x + (this.rad) * sin(radians(jsonobj.pan)), cam_y + (this.rad) * sin(radians(jsonobj.tilt)), cam_z + (this.rad) * cos(radians(jsonobj.pan)) * cos(radians(jsonobj.tilt)));
+    this.pos2 = createVector(cam_x + (this.rad) * sin(radians(jsonobj.pan)), cam_y + (this.rad) * sin(radians(jsonobj.tilt)), cam_z + (this.rad) * cos(radians(jsonobj.pan)) * cos(radians(jsonobj.tilt)));
+    this.pos3 = createVector(cam_x + (this.rad) * sin(radians(jsonobj.pan)), cam_y + (this.rad) * sin(radians(jsonobj.tilt)), cam_z + (this.rad) * cos(radians(jsonobj.pan)) * cos(radians(jsonobj.tilt)));
+    this.pos4 = createVector(cam_x + (this.rad) * sin(radians(jsonobj.pan)), cam_y + (this.rad) * sin(radians(jsonobj.tilt)), cam_z + (this.rad) * cos(radians(jsonobj.pan)) * cos(radians(jsonobj.tilt)));
+    this.characterrot = 0;
+    this.rotx1 = random(radians(10));
+    this.roty1 = random(radians(10));
+    this.rotz1 = random(radians(10));
+    this.rotx2 = random(radians(10));
+    this.roty2 = random(radians(10));
+    this.rotz2 = random(radians(10));
+    this.rotx3 = random(radians(10));
+    this.roty3 = random(radians(10));
+    this.rotz3 = random(radians(10));
+    this.rotx4 = random(radians(10));
+    this.roty4 = random(radians(10));
+    this.rotz4 = random(radians(10));
+    this.charactercolor = random(360);
     this.centeranglex = atan((this.origin.x - cam_x) / (this.origin.z - cam_z));
     this.centerangley = atan((this.origin.y - cam_y) / (this.origin.z - cam_z));
     this.width = 25;
@@ -20,6 +39,7 @@ class People {
     this.detect;
     this.texture = jsonobj.texture;
     this.isrendering;
+    this.scale = 1;
 
     //we need to compare cam(pan&tilt) w/ jsonobj.pan&tilt.
   }
@@ -57,6 +77,86 @@ class People {
       }
     } else if(this.rescue == true){
       this.isrendering = false;
+      this.scale -= 0.03;
+      if(this.scale >= 0){
+        push();
+        tint(0, 255, 0);
+        texture(peopletexture[this.texture]);
+        translate(this.pos1);
+        this.pos1.x-=3;
+        this.pos1.y+=3;
+        rotateX(this.rotx1);
+        rotateX(this.roty1);
+        rotateX(this.rotz1);
+        this.rotx1-=radians(3);
+        this.roty1+=radians(3);
+        this.rotz1+=radians(3);
+        scale(this.scale);
+        box(25, 25, 25);
+        pop();
+
+        push();
+        tint(0, 255, 0);
+        texture(peopletexture[this.texture]);
+        translate(this.pos2);
+        this.pos2.x+=3;
+        this.pos2.y+=3;
+        rotateX(this.rotx2);
+        rotateX(this.roty2);
+        rotateX(this.rotz2);
+        this.rotx2+=radians(3);
+        this.roty2+=radians(3);
+        this.rotz2+=radians(3);
+        scale(this.scale);
+        box(25, 25, 25);
+        pop();
+
+        push();
+        tint(0, 255, 0);
+        texture(peopletexture[this.texture]);
+        translate(this.pos3);
+        this.pos3.x-=3;
+        this.pos3.y-=3;
+        rotateX(this.rotx3);
+        rotateX(this.roty3);
+        rotateX(this.rotz3);
+        this.rotx3-=radians(3);
+        this.roty3-=radians(3);
+        this.rotz3-=radians(3);
+        scale(this.scale);
+        box(25, 25, 25);
+
+        pop();
+
+        push();
+        tint(0, 255, 0);
+        texture(peopletexture[this.texture]);
+        this.pos4.x+=3;
+        this.pos4.y-=3;
+        translate(this.pos4);
+        rotateX(this.rotx4);
+        rotateX(this.roty4);
+        rotateX(this.rotz4);
+        this.rotx4+=radians(3);
+        this.roty4-=radians(3);
+        this.rotz4-=radians(3);
+        scale(this.scale);
+        box(25, 25, 25);
+        pop();
+      }
+      if(this.characterrot <= 2){
+        push();
+        translate(this.characterpos);
+        scale(3);
+        noStroke();
+        colorMode(HSB,360,100,100,1);
+        fill(this.charactercolor,60,100, 1-this.characterrot*0.5);
+        this.characterpos.y+=this.characterrot;
+        rotateY(this.characterrot);
+        this.characterrot+=0.1;
+        model(character);
+        pop();
+      }
     }
   }
 
