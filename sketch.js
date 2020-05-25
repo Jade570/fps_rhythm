@@ -179,6 +179,7 @@ function draw() {
     exitPointerLock();
   }
   if(song.isPaused()){
+    exitPointerLock();
     if(score >= perfect * 0.8){
       push();
       translate(0,0, aim_z/2);
