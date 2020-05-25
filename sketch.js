@@ -45,7 +45,7 @@ function preload() {
   A = loadModel('assets/abc/modelA.obj');
   B = loadModel('assets/abc/modelB.obj');
   C = loadModel('assets/abc/modelC.obj');
-  character = loadModel('assets/character.obj'); 
+  character = loadModel('assets/character.obj');
 }
 
 function setup() {
@@ -77,7 +77,7 @@ function setup() {
   }
 
   aimcolor[0] = color(255, 255, 255); //normal
-  aimcolor[1] = color(0, 200, 0); // targeted
+  aimcolor[1] = color(50,255, 255); // targeted
   aimcolor[2] = color(200, 0, 0); // no or wrong target
   aimsituation = 0;
   detection = 0;
